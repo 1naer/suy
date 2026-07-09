@@ -161,7 +161,7 @@ def gen_yaml():
     return out
 
 class H(http.server.BaseHTTPRequestHandler):
-        def do_HEAD(self):
+    def do_HEAD(self):
         self.send_response(200)
         self.end_headers()
 

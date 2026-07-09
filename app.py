@@ -189,7 +189,7 @@ class H(http.server.BaseHTTPRequestHandler):
                 h = '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>永动机</title>'
                 h += '<style>body{font-family:sans-serif;margin:20px;background:#f4f4f4;} .card{background:#fff;padding:15px;margin-bottom:15px;border-radius:8px;} pre{background:#222;color:#0f0;padding:10px;overflow-x:auto;} table{width:100%;border-collapse:collapse;} th,td{text-align:left;padding:8px;border-bottom:1px solid #ddd;} </style></head>'
                 h += '<body><h2>🔋 速游永动机控制台</h2>'
-                h += '<div class="card"><b>🔗 订阅链接:</b> <a href="/sub">http://127.0.0.1:8080/sub</a></div>'
+                h += '<div class="card"><b>🔗 订阅链接:</b> <span id="auto-link" style="color:#1890ff;font-weight:bold;">获取中...</span><script>document.getElementById("auto-link").innerHTML="<a href=\""+window.location.origin+"/sub\">"+window.location.origin+"/sub</a>";</script></div>'
                 h += '<div class="card"><b>🏠 主号池 (<span id="p-cnt">0</span>/10)</b><table><thead><tr><th>UUID</th><th>流量</th></tr></thead><tbody id="p-list"></tbody></table></div>'
                 h += '<div class="card"><b>📦 存货池 (<span id="i-cnt">0</span>/20)</b><table><thead><tr><th>UUID</th><th>流量</th></tr></thead><tbody id="i-list"></tbody></table></div>'
                 h += '<div class="card"><b>📜 日志</b><pre id="log-list">Loading...</pre></div>'

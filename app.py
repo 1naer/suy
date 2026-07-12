@@ -273,7 +273,7 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_response(200)
                 self.send_header("Content-type", "text/yaml; charset=utf-8")
                 self.end_headers()
-                yaml_data = generate_clash_yaml(target_acc)
+                yaml_data = generate_clash_yaml(list(account_pool) if account_pool else [target_acc])
                 self.wfile.write(yaml_data.encode("utf-8"))
             else:
                 self.send_response(500)

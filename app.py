@@ -55,7 +55,7 @@ HTML_TPL = '''<!DOCTYPE html>
 
 def log(msg):
     t = time.strftime("%H:%M:%S")
-    print(f"[{t}] {msg}")
+    print(f"[{t}] {msg}", flush=True)
 
 def load_pool():
     global account_pool
@@ -284,12 +284,17 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
 
+class ThreadedHTTPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+    daemon_threads = True
+    allow_reuse_address = True
+
 if __name__ == "__main__":
     load_pool()
     t = threading.Thread(target=background_task, daemon=True)
     t.start()
     
     port = int(os.environ.get("PORT", 8080))
-    with socketserver.TCPServer(("", port), ProxyHandler) as httpd:
-        log(f"[*] 究极永动机 Web 服务已启动，监听端口: {port}")
-        httpd.serve_forever()
+    # 必须明确绑定到 0.0.0.0，否则 Render 会报 502 Bad Gateway
+    server = ThreadedHTTPServer(("0.0.0.0", port), ProxyHandler)
+    log(f"[*] 究极永动机 Web 服务已启动，监听 0.0.0.0:{port}")
+    server.serve_forever()

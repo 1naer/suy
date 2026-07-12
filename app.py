@@ -232,7 +232,7 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
                     save_pool()
                     host = self.headers.get('Host', 'localhost:8080')
                     # 动态生成当前服务的订阅链接
-                    sub_link = f"http://{host}/sub/{acc['uid']}"
+                    sub_link = f"https://{host}/sub"
                     
                     content_html = f'''
                     <div class="card">
@@ -260,26 +260,30 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
             html = HTML_TPL.format(count=count, content=content_html, table_rows=rows)
             self.wfile.write(html.encode("utf-8"))
             
-        elif parsed.path.startswith("/sub/"):
-            uid = parsed.path.split("/")[-1]
+        elif parsed.path.startswith("/sub"):
             target_acc = None
             with pool_lock:
-                for a in account_pool:
-                    if str(a['uid']) == uid:
-                        target_acc = a
-                        break
+                if account_pool:
+                    target_acc = account_pool[0] # 直接拿池子里的第一个
+                    
+            # 万一 Render 刚睡醒池子是空的，立刻现场注册一个发给客户端！
+            if not target_acc:
+                log("[*] 收到订阅请求，但池子为空，现场紧急抓取新号...")
+                target_acc = do_register()
+                if target_acc:
+                    with pool_lock:
+                        account_pool.append(target_acc)
                         
             if target_acc:
                 self.send_response(200)
-                # 返回 YAML 格式，让 Clash 客户端自动解析
                 self.send_header("Content-type", "text/yaml; charset=utf-8")
                 self.end_headers()
                 yaml_data = generate_clash_yaml(target_acc)
                 self.wfile.write(yaml_data.encode("utf-8"))
             else:
-                self.send_response(404)
+                self.send_response(500)
                 self.end_headers()
-                self.wfile.write(b"Account Not Found or Expired")
+                self.wfile.write(b"Server busy or official API failed, please try again")
         else:
             self.send_response(404)
             self.end_headers()

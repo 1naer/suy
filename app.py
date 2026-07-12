@@ -163,7 +163,7 @@ class ReqHandler(http.server.BaseHTTPRequestHandler):
             <h2>🔥 自动存货池: {pool_size}</h2>
             <div style="margin:20px;padding:15px;background:#f0f2f5;border-radius:8px;">
             <b>🔗 订阅链接:</b> <span id="auto-link" style="color:#1890ff;font-weight:bold;">获取中...</span>
-            <script>document.getElementById("auto-link").innerHTML = `<a href="${window.location.origin}/sub">${window.location.origin}/sub</a>`;</script>
+            <script>document.getElementById("auto-link").innerHTML = `<a href="${{window.location.origin}}/sub">${{window.location.origin}}/sub</a>`;</script>
             </div></body></html>'''
             self.wfile.write(html.encode("utf-8"))
         elif parsed.path == "/sub":

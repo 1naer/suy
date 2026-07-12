@@ -46,7 +46,7 @@ HTML_TPL = '''<!DOCTYPE html>
     <div class="card">
         <h3>📦 存货池明细</h3>
         <table>
-            <tr><th>UID</th><th>UUID</th><th>状态</th></tr>
+            <tr><th>UID</th><th>UUID</th><th>剩余流量</th><th>状态</th></tr>
             {table_rows}
         </table>
     </div>
@@ -126,7 +126,7 @@ def do_register():
 
             if uuid_str:
                 log(f"[+] 注册成功！UID: {uid}, 获得 UUID: {uuid_str[:8]}...")
-                return {"uid": uid, "uuid": uuid_str, "auth_data": auth_data}
+                return {"uid": uid, "uuid": uuid_str, "auth_data": auth_data, "traffic": "1.00 GB"}
             else:
                 log("[-] 注册成功但未能获取到 UUID")
         else:
@@ -170,12 +170,10 @@ def generate_clash_yaml(acc_list):
     groups = []
     node_names = [n['name'] for n in BASE_NODES]
     
-    # 遍历官方的节点
     for n in BASE_NODES:
         sub_proxies = []
-        # 把每个号里的这个节点都加进来
         for acc in acc_list:
-            uid_str = str(acc['uid'])[-4:]
+            uid_str = str(acc.get('uid', '0000'))[-4:]
             p_name = f"{n['name']}-{uid_str}"
             sub_proxies.append(p_name)
             
@@ -184,9 +182,10 @@ def generate_clash_yaml(acc_list):
                 "type": "vless",
                 "server": n['server'],
                 "port": n['port'],
-                "uuid": acc['uuid'],
+                "uuid": acc.get('uuid', ''),
                 "udp": True,
-                "xudp": True,  # 官方黑科技防阻断参数！
+                "packet-encoding": "xudp",  # 官方灵魂防墙参数！
+                "network": "tcp",
                 "tls": True,
                 "servername": n['server_name'],
                 "client-fingerprint": "chrome",
@@ -197,7 +196,6 @@ def generate_clash_yaml(acc_list):
                 }
             })
             
-        # 为这个节点建立一个专属的负载均衡组
         groups.append({
             "name": n['name'],
             "type": "load-balance",
@@ -206,7 +204,6 @@ def generate_clash_yaml(acc_list):
             "proxies": sub_proxies
         })
         
-    # 主选择组和全自动测速组
     groups.insert(0, {"name": "Proxy", "type": "select", "proxies": ["AUTO"] + node_names})
     groups.insert(1, {"name": "AUTO", "type": "url-test", "url": "http://www.gstatic.com/generate_204", "interval": 300, "tolerance": 50, "proxies": node_names})
     
@@ -252,7 +249,7 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
                     
                 rows = ""
                 for a in account_pool:
-                    rows += f"<tr><td>{a['uid']}</td><td>{a['uuid'][:8]}...</td><td>就绪</td></tr>"
+                    rows += f"<tr><td>{a['uid']}</td><td>{a['uuid'][:8]}...</td><td style='color:#2ed573;font-weight:bold;'>{a.get('traffic', '1.00 GB')}</td><td>就绪</td></tr>"
                     
             # 渲染 HTML 并转义写入
             html = HTML_TPL.format(count=count, content=content_html, table_rows=rows)

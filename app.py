@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ================= VLESS REALITY 节点集群 (共 19 个) =================
-BASE_NODES = [{'name': 'AWS-HK-01', 'server': '16.163.107.170', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-HK-01'}, {'name': 'AWS-JP-02', 'server': '18.183.84.67', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP-02'}, {'name': 'AWS-JP-03', 'server': '35.78.200.186', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP-03'}, {'name': 'AWS-KR-02', 'server': '3.38.129.206', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-KR-02'}, {'name': 'AWS-SG-02', 'server': '18.142.122.25', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-SG-02'}, {'name': 'AWS-SG-03', 'server': '13.229.136.66', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-SG-03'}, {'name': 'AWS-JP-04', 'server': 'jp04.baiduhelp.com', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP-04'}, {'name': 'AWS-SG-05', 'server': '47.129.226.30', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 'aijccz.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-SG-05'}, {'name': 'AWS-JP-05', 'server': 'jp05.baiduhelp.com', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP-05'}, {'name': 'AWS-KR-05', 'server': '43.203.164.241', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-KR-05'}, {'name': 'AWS-JP2-01', 'server': '54.249.55.221', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP2-01'}, {'name': 'AWS-JP2-02', 'server': '35.78.103.60', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP2-02'}, {'name': 'AWS-JP2-03', 'server': '54.178.64.147', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP2-03'}, {'name': 'AWS-SG2-01', 'server': '18.141.170.11', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-SG2-01'}, {'name': 'AWS-SG2-02', 'server': '13.212.184.33', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-SG2-02'}, {'name': 'AWS-SG2-03', 'server': 'aws-sg3.sysydu.top', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-SG2-03'}, {'name': 'AWS-JP03-备用', 'server': '52.198.137.136', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-JP03-%E5%A4%87%E7%94%A8'}, {'name': 'AWS-HK01-备用', 'server': '18.166.225.151', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-HK01-%E5%A4%87%E7%94%A8'}, {'name': 'AWS-HK02-备用', 'server': '16.163.106.51', 'port': 443, 'flow': 'xtls-rprx-vision', 'server_name': 's0.awsstatic.com', 'public_key': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'short_id': '6a69fd63#AWS-HK02-%E5%A4%87%E7%94%A8'}]
+BASE_NODES = [{"name": "AWS-HK-01", "server": "16.163.107.170", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP-02", "server": "18.183.84.67", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP-03", "server": "35.78.200.186", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-KR-02", "server": "3.38.129.206", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-SG-02", "server": "18.142.122.25", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-SG-03", "server": "13.229.136.66", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP-04", "server": "jp04.baiduhelp.com", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-SG-05", "server": "47.129.226.30", "port": 443, "flow": "xtls-rprx-vision", "server_name": "aijccz.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP-05", "server": "jp05.baiduhelp.com", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-KR-05", "server": "43.203.164.241", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP2-01", "server": "54.249.55.221", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP2-02", "server": "35.78.103.60", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP2-03", "server": "54.178.64.147", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-SG2-01", "server": "18.141.170.11", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-SG2-02", "server": "13.212.184.33", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-SG2-03", "server": "aws-sg3.sysydu.top", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-JP03-备用", "server": "52.198.137.136", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-HK01-备用", "server": "18.166.225.151", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}, {"name": "AWS-HK02-备用", "server": "16.163.106.51", "port": 443, "flow": "xtls-rprx-vision", "server_name": "s0.awsstatic.com", "public_key": "W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8", "short_id": "6a69fd63"}]
 
 POOL_FILE = "suyou_pools.json"
 pool_lock = threading.RLock()
@@ -39,7 +39,7 @@ HTML_TPL = '''<!DOCTYPE html>
 <body>
     <div class="card">
         <h2>🔥 自动存货池状态</h2>
-        <p>当前可用新号数量: <span class="pool-count">{count}</span> / 10</p>
+        <p>当前可用新号数量: <span class="pool-count">{count}</span> / 20</p>
         <p>点击下方链接导入至支持 Meta 内核的客户端 (FlClash/Clash Verge Rev) 测速！</p>
     </div>
     {content}
@@ -143,7 +143,7 @@ def background_task():
         with pool_lock:
             pool_size = len(account_pool)
         
-        if pool_size >= 10:
+        if pool_size >= 20:
             # 满载时深度休眠 (40~80秒)，消除机器特征
             sleep_time = random.randint(40, 80)
             time.sleep(sleep_time)
@@ -164,56 +164,54 @@ def background_task():
             time.sleep(random.randint(15, 30))
 
 # ================= 订阅生成与网页服务 =================
-def generate_clash_yaml(account):
-    uid = account['uid']
-    uuid_str = account['uuid']
-    
+def generate_clash_yaml(acc_list):
+    import yaml
     proxies = []
-    proxy_names = []
+    groups = []
+    node_names = [n['name'] for n in BASE_NODES]
     
-    for node in BASE_NODES:
-        node_name = node['name']
-        proxy_names.append(node_name)
-        proxies.append({
-            "name": node_name,
-            "type": "vless",
-            "server": node['server'],
-            "port": node['port'],
-            "uuid": uuid_str,
-            "udp": True,
-            "tls": True,
-            "network": "tcp",
-            "servername": node['server_name'],
-            "client-fingerprint": "chrome",
-            "flow": node['flow'],
-            "reality-opts": {
-                "public-key": node['public_key'],
-                "short-id": node['short_id'].split('#')[0]
-            }
+    # 遍历官方的节点
+    for n in BASE_NODES:
+        sub_proxies = []
+        # 把每个号里的这个节点都加进来
+        for acc in acc_list:
+            uid_str = str(acc['uid'])[-4:]
+            p_name = f"{n['name']}-{uid_str}"
+            sub_proxies.append(p_name)
+            
+            proxies.append({
+                "name": p_name,
+                "type": "vless",
+                "server": n['server'],
+                "port": n['port'],
+                "uuid": acc['uuid'],
+                "udp": True,
+                "xudp": True,  # 官方黑科技防阻断参数！
+                "tls": True,
+                "servername": n['server_name'],
+                "client-fingerprint": "chrome",
+                "flow": n['flow'],
+                "reality-opts": {
+                    "public-key": n['public_key'],
+                    "short-id": str(n['short_id']).split('#')[0]
+                }
+            })
+            
+        # 为这个节点建立一个专属的负载均衡组
+        groups.append({
+            "name": n['name'],
+            "type": "load-balance",
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": 300,
+            "proxies": sub_proxies
         })
         
-    config = {
-        "proxies": proxies,
-        "proxy-groups": [
-            {
-                "name": "Proxy",
-                "type": "select",
-                "proxies": ["AUTO"] + proxy_names
-            },
-            {
-                "name": "AUTO",
-                "type": "url-test",
-                "url": "http://www.gstatic.com/generate_204",
-                "interval": 300,
-                "tolerance": 50,
-                "proxies": proxy_names
-            }
-        ],
-        "rules": [
-            "MATCH,Proxy"
-        ]
-    }
-    return yaml.dump(config, allow_unicode=True, sort_keys=False)
+    # 主选择组和全自动测速组
+    groups.insert(0, {"name": "Proxy", "type": "select", "proxies": ["AUTO"] + node_names})
+    groups.insert(1, {"name": "AUTO", "type": "url-test", "url": "http://www.gstatic.com/generate_204", "interval": 300, "tolerance": 50, "proxies": node_names})
+    
+    cfg = {"proxies": proxies, "proxy-groups": groups, "rules": ["MATCH,Proxy"]}
+    return yaml.dump(cfg, allow_unicode=True, sort_keys=False)
 
 class ProxyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):

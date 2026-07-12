@@ -188,7 +188,7 @@ def generate_clash_yaml(account):
             "flow": node['flow'],
             "reality-opts": {
                 "public-key": node['public_key'],
-                "short-id": node['short_id']
+                "short-id": node['short_id'].split('#')[0]
             }
         })
         

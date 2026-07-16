@@ -16,28 +16,20 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ================= VLESS REALITY 节点集群 (共 19 个) =================
 BASE_NODES = [
-    {'name': 'AWS-HK-01', 'server': '16.162.192.203', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-JP-02', 'server': '35.78.109.219', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-JP-03', 'server': '43.207.178.208', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-KR-02', 'server': '43.203.158.131', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-HK-03', 'server': '18.166.178.76', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-SG-02', 'server': '18.138.35.149', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-SG-03', 'server': '13.214.161.201', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-SG-05', 'server': '13.250.172.125', 'port': 443, 'sni': 'aijccz.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-JP-05', 'server': 'jp05.baiduhelp.com', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-KR-05', 'server': '15.165.31.100', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-JP2-01', 'server': '43.207.49.199', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-JP2-02', 'server': '52.199.244.220', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-JP2-03', 'server': '18.183.57.194', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-HK2-01', 'server': '18.167.36.219', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-HK2-02', 'server': '16.163.138.17', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-SG2-01', 'server': '13.212.72.91', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-SG2-02', 'server': '18.143.157.87', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-JP03-备用', 'server': '35.77.221.106', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-HK01-备用', 'server': '95.40.4.44', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-HK02-备用', 'server': '16.163.144.54', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-HK03-备用', 'server': '43.199.59.143', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'},
-    {'name': 'AWS-HK04-备用', 'server': '54.46.50.240', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63'}
+    {'name': 'AWS-JP-02', 'server': '43.207.178.88', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63', 'type': 'vless'},
+    {'name': 'AWS-JP-04', 'server': 'jp04.baiduhelp.com', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63', 'type': 'vless'},
+    {'name': 'AWS-JP-05', 'server': 'jp05.baiduhelp.com', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63', 'type': 'vless'},
+    {'name': 'AWS-HK2-01', 'server': '16.162.220.232', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63', 'type': 'vless'},
+    {'name': 'AWS-SG2-03', 'server': 'aws-sg3.sysydu.top', 'port': 443, 'sni': 's0.awsstatic.com', 'pbk': 'W_6i8cZ-Bx8ED2sAQWFjzrlmCBIBHiMmcFyjqLPiFz8', 'sid': '6a69fd63', 'type': 'vless'},
+    {'name': 'Pony-TW01-Android', 'server': '60.249.101.6', 'port': 80, 'host': 'www.pkuschool.edu.cn', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-SG01-android', 'server': 'sg-01.sysydu.top', 'port': 80, 'host': 'sg-01.sysydu.top', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-SG01-android-普通', 'server': 'sg-01-si.sysydu.top', 'port': 80, 'host': 'sg-01-si.sysydu.top', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-US01-Android', 'server': 'us-01.sysydu.top', 'port': 80, 'host': 'us-01.sysydu.top', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-US01-android-普通', 'server': 'us-01-si.sysydu.top', 'port': 80, 'host': 'us-01-si.sysydu.top', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-JP01-android', 'server': 'jp-01.sysydu.top', 'port': 80, 'host': 'jp-01.sysydu.top', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-JP01-android-普通', 'server': 'jp-01-si.sysydu.top', 'port': 80, 'host': 'jp-01-si.sysydu.top', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-SG02-Android', 'server': 'sg-02.sysydu.top', 'port': 80, 'host': 'sg-02.sysydu.top', 'path': '/rpc', 'type': 'trojan'},
+    {'name': 'Pony-SG02-android-普通', 'server': 'sg-02-si.sysydu.top', 'port': 80, 'host': 'sg-02-si.sysydu.top', 'path': '/rpc', 'type': 'trojan'}
 ]
 
 POOL_FILE = "suyou_pools.json"
@@ -249,24 +241,41 @@ def generate_clash_yaml(acc_list):
             used_proxy_names.add(p_name)
             sub_proxies.append(p_name)
 
-            proxies.append({
-                "name": p_name,
-                "type": "vless",
-                "server": n['server'],
-                "port": int(n.get('port', 443)),
-                "uuid": acc.get('uuid', ''),
-                "udp": True,
-                "packet-encoding": "xudp",
-                "network": "tcp",
-                "tls": True,
-                "servername": n.get('server_name') or n.get('sni') or n.get('servername') or 's0.awsstatic.com',
-                "client-fingerprint": n.get('client_fingerprint') or n.get('client-fingerprint') or 'chrome',
-                "flow": n.get('flow') or 'xtls-rprx-vision',
-                "reality-opts": {
-                    "public-key": n.get('public_key') or n.get('public-key'),
-                    "short-id": str(n.get('short_id') or n.get('short-id') or '').split('#')[0]
-                }
-            })
+            if n.get('type', 'vless') == 'vless':
+                proxies.append({
+                    "name": p_name,
+                    "type": "vless",
+                    "server": n['server'],
+                    "port": int(n.get('port', 443)),
+                    "uuid": acc.get('uuid', ''),
+                    "udp": True,
+                    "packet-encoding": "xudp",
+                    "network": "tcp",
+                    "tls": True,
+                    "servername": n.get('server_name') or n.get('sni') or n.get('servername') or 's0.awsstatic.com',
+                    "client-fingerprint": n.get('client_fingerprint') or n.get('client-fingerprint') or 'chrome',
+                    "flow": n.get('flow') or 'xtls-rprx-vision',
+                    "reality-opts": {
+                        "public-key": n.get('public_key') or n.get('public-key') or n.get('pbk'),
+                        "short-id": str(n.get('short_id') or n.get('short-id') or n.get('sid') or '').split('#')[0]
+                    }
+                })
+            else:
+                proxies.append({
+                    "name": p_name,
+                    "type": "trojan",
+                    "server": n['server'],
+                    "port": int(n.get('port', 80)),
+                    "password": acc.get('uuid', ''),
+                    "udp": True,
+                    "network": "ws",
+                    "ws-opts": {
+                        "path": n.get('path', '/rpc'),
+                        "headers": {
+                            "Host": n.get('host', n['server'])
+                        }
+                    }
+                })
 
         groups.append({
             "name": n['name'],
